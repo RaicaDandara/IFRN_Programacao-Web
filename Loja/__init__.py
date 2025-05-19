@@ -20,3 +20,4 @@
 #       4.1 python -m venv venv
 #       4.2 pip install django Django==4.2.7
 #       4.3 pip install Pillow
+# OBS: em caso de algo não funcionar verificar com chat gpt e alterar aqui
