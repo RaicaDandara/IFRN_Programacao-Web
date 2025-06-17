@@ -20,4 +20,5 @@
 #       4.1 python -m venv venv
 #       4.2 pip install django Django==4.2.7
 #       4.3 pip install Pillow
+#       4.4 rodar é python manage.py runserver 127.0.0.1:8080
 # OBS: em caso de algo não funcionar verificar com chat gpt e alterar aqui
