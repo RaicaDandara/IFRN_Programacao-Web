@@ -90,9 +90,6 @@ def create_produto_view(request, id=None):
         return redirect("/produto")
     return render(request, template_name='produto/produto-create.html',status=200)
 
-def create_produto_view(request, id=None):
-    return render(request, template_name='produto/produto-create.html',status=200)
-
 # adicione a função que trata o postback da interface de exclusão
 def delete_produto_postback(request, id=None):
 # Processa o post back gerado pela action
