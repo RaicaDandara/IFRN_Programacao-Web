@@ -49,9 +49,9 @@ def edit_usuario_view(request):
             if emailUnused:
                 # Se o e-mail não está em uso tiver algum dado inválido.
                 message = { 'type': 'danger', 'text': 'Dados inválidos' }
-        else:
-            # Se o e-mail já está em uso por outra pessoa.
-            message = { 'type': 'warning', 'text': 'E-mail já usado' }
+            else:
+                # Se o e-mail já está em uso por outra pessoa.
+                message = { 'type': 'warning', 'text': 'E-mail já usado' }
         # Até aqui
         # Adicione a chave message a seguir
     # Até aqui antes do context
