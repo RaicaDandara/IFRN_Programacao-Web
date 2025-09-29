@@ -37,6 +37,8 @@
 #     return HttpResponse('<h1>Produto de id %s!</h1>' % id)
 #     # OBS: o % indica que uma variável (nesse cado id, pq vem após o |% vai ser inserida no meio da string formatada criada)
 
+# Adicione a linha a seguir
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 # from django.shortcuts import render # Retire from django.http import HttpResponse
 #Inclua as classes modelos de fabricante e categoria
@@ -105,6 +107,7 @@ def delete_produto_postback(request, id=None):
         except Exception as e:
             print("Erro salvando edição de produto: %s" % e)
     return redirect("/produto")
+
 def delete_produto_view(request, id=None):
 # Processa o evento GET gerado pela action
     produtos = Produto.objects.all()
@@ -114,6 +117,7 @@ def delete_produto_view(request, id=None):
     print(produto)
     context = {'produto': produto}
     return render(request, template_name='produto/produto-delete.html', context=context, status=200)
+
 def details_produto_view(request, id=None):
     # Processa o evento GET gerado pela action
     produtos = Produto.objects.all()
@@ -123,6 +127,11 @@ def details_produto_view(request, id=None):
     print(produto)
     context = {'produto': produto}
     return render(request, template_name='produto/produto-details.html', context=context, status=200)
+
+
+# Adicione a linha a seguir
+@login_required
+# Até aqui
 def edit_produto_view(request, id=None):
     produtos = Produto.objects.all()
     if id is not None:
@@ -134,6 +143,7 @@ def edit_produto_view(request, id=None):
     Categorias = Categoria.objects.all()
     context = {'produto': produto, 'fabricantes' : Fabricantes, 'categorias' : Categorias}
     return render(request, template_name='produto/produto-edit.html', context=context, status=200)
+
 def list_produto_view(request, id=None):
     produto = request.GET.get("produto")
     destaque = request.GET.get("destaque")
@@ -162,6 +172,7 @@ def list_produto_view(request, id=None):
     # Adicione para definir o contexto e carregar o template
     context = { 'produtos': produtos }
     return render(request, template_name='produto/produto.html', context=context, status=200)
+
 # adicione a função que trata o postback da interface de edição
 def edit_produto_postback(request, id=None):
     # Processa o post back gerado pela action
