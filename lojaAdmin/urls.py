@@ -27,4 +27,6 @@ urlpatterns = [
     # Adicione a linha a seguir
     path('usuario/', include('Loja.urls.UsuarioUrls')),
     path('', include('Loja.urls.AuthUrls')),
+    # Adicione a linha a seguir
+    path('carrinho/', include('Loja.urls.CarrinhoUrls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
