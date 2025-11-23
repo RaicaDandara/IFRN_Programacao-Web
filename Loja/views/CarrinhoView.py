@@ -55,6 +55,7 @@ def create_carrinhoitem_view(request, produto_id=None):
 def list_carrinho_view(request):
     print ('list_carrinho_view')
     carrinho = None
+    context = {}
     # Tenta pegar o carrinho da sessão ou cria um novo carrinho
     carrinho_id = request.session.get('carrinho_id')
     if carrinho_id:
